@@ -5,14 +5,66 @@ date: "05/10/2018"
 output: html_document
 ---
 
+
 ## Exercise 1
 
 Sometimes in French people call statistics "la Statistique" or "les statistiques" so as not to confuse it with a single statistic, "une statistique", but not everybody agrees on the validity of these appellations.
 
+
 ## Exercise 2
+
+```{r}
+possible_outcomes <- c(0, 1, 2, 3, 4, 5)
+outcome_probabilities <- c(0.1, 0.5, 0.2, 0.1, 0.05, 0.05)
+n_data_points <- 400
+
+set.seed(1)
+fake_data_points <- sample(possible_outcomes,
+                           n_data_points,
+                           replace=T,
+                           prob=outcome_probabilities)
+set.seed(NULL)
+
+fake_data_set <- tibble::data_frame(`Fake measurement`=fake_data_points)
+```
+
+```{r}
+ggplot2::ggplot(fake_data_set, ggplot2::aes(x=`Fake measurement`)) +
+ggplot2::geom_histogram(bins=5, colour="black", fill="lightgrey")
+```
+
+I would like to preface this by saying that I am in Linguistique Informatique and have already used R before in Analyse Phonétique in M1.
+
+
+`outcome_probabilities <- c(0.1, 0.5, 0.2, 0.1, 0.05, 0.05)`
+
+**Statement 2** : this statement creates a vector of floats to a variable named `outcome_probabilities`. The R-typical assignment operator `<-` supports this. It introduces a probability ditribution over the possible outcomes defined in the preceding statement; this is supported by the name of the variable and the fact that the length of the created vector matches that of `possible_outcomes`, so the values can be expected to map to one another.
+
+
+`n_data_points <- 400`
+
+**Statement 3** : this statement assigns a value of 400 to a variable called `n_data_points`. It defines a number ("n" or "nb" is usually a shortening of "number") of data points, which here are the number of values from the set contained in `possible_outcomes` appearing with probabilities `outcome_probabilities` that we want to be generated in statement 5.
+
+
+`set.seed(1)`
+
+**Statement 4** : this statement is a preliminary initialisation of a random number generating function (here, `sample` from statement 5). A seed is a value used as a starting point for a random number generator. According to the help for Random Number Generation, here the value of 1 for the parameter of the function `set` is the number of seeds to be specified. The other line containing this function, `set.seed(NULL)`, is a reinitialisation of the random number generator, setting the seed to a null value. It is somewhat akin to setting it to 0, as `NULL` is a kind of absolute 0 value for every variable type (not only integers) for computers.
+
+
+`fake_data_points <- sample(possible_outcomes, n_data_points, replace=T, prob=outcome_probabilities)`
+
+**Statement 5** : this statement randomly generates the data we are going to use for plotting and saves it in the variable `fake_data_points`, which makes this another variable assignment, but one that uses a call to a function rather than a hard-coded value, the `sample` function. According to the help on Random Samples and Permutations, this function randomly selects a given number of elements from a set, allowing it to be used as a random number generator. The number of data points to be generated (values to be selected) is `n_data_points`, chosen among the possibilities in the `possible_outcomes` vector with the probabilities of the `prob` parameter, whose values here is the outcome_probabilities vector values, mapped to the `possible_outcomes` vector. `replace` is given the value "T", which stands for True; this means that when a value is randomly chosen in the set of possible values by `sample`, it will be "placed back" in the possible values, allowing it to be potentially chosen again. This is necessary to generate 400 data points with only six possible values. The data points thus created are "fake" because they do not correspond to actual measured data.
+
+
+`fake_data_set <- tibble::data_frame("Fake measurement"=fake_data_points)`
+
+**Statement 6** : the goal of this statement is to store the data generated as data and not as values (as can be seen in the environment) and in a more appropriate structure than a vector : a trimmed down data frame using the `tibble` package. This allows to store data in a structure that does not impose on the values of the data and adds column names (according to the help page "Build a list"). We can see that `tibble` is a package because of the `::` operator used to call the `data_frame` function. As we only have a single-dimension vector to store, and tibble doesn't take row names, we only need one column name to identify it, which here is "Fake measurement". The quotes show that this is not a parameter of the function not a variable getting assigned. However, this statement is the definition of the variable `fake_data_set` (`<-`).
+
 
 ## Exercise 3
 
+
 ## Exercise 4
+
 
 ## Exercise 5
