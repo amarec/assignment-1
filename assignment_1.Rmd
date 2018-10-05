@@ -1,0 +1,16 @@
+---
+title: "Assignment 1"
+author: "Aude Marêché"
+date: "05/10/2018"
+output: html_document
+---
+
+## Exercise 1
+
+## Exercise 2
+
+## Exercise 3
+
+## Exercise 4
+
+## Exercise 5
