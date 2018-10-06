@@ -1,3 +1,5 @@
+# 3-a
+
 # Sum values in a column of a data frame.
 #
 # ARGUMENTS:
@@ -30,6 +32,9 @@ sum_column <- function(d, var) {
   }
 }
 
+
+# 3-b
+
 # Sum values in a vector.
 #
 # ARGUMENTS:
@@ -56,6 +61,9 @@ my_sum <- function(x) {
   }
 }
 
+
+# 3-c
+
 # Divide the sum of the values in a vector by a number.
 #
 # ARGUMENTS:
@@ -81,6 +89,9 @@ sum_divided_by <- function(x, k) {
   }
 }
 
+
+# 3-d
+
 # Return the mean of a vector's values
 #
 # ARGUMENTS:
@@ -97,4 +108,28 @@ my_mean <- function(x) {
     # Compute and store the mean to be returned
     result <- sum_divided_by(x, length(x))
   }
+}
+
+
+# 4-a
+
+# Return a violin plot.
+#
+# ARGUMENTS:
+# d: a data frame or tibble
+# var: the name of a column of d containing the dependent variable, provided as a
+#     string
+# grouping_var: the name of a column of d containing a grouping variable,
+# provided as a string
+#
+# RETURN VALUE:
+# A ggplot plot object containing a violin plot, grouped by the values
+# of the grouping variable.
+#
+grouped_violin_plot <- function(d, var, grouping_var) {
+  # Create the base ggplot object
+  p <- ggplot2::ggplot(d, ggplot2::aes_string(y=var,
+                                              x=grouping_var,
+                                              fill=grouping_var)) + ggplot2::geom_violin()
+  return(p)
 }

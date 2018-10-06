@@ -102,5 +102,19 @@ print(my_mean(warpbreaks$breaks))
 
 ## Exercise 4
 
+### 4-a
+
+```{r}
+print(grouped_violin_plot(iris, "Sepal.Length", "Species"))
+```
+
+### 4-b
+
+```{r}
+p <- grouped_violin_plot(iris, "Sepal.Length", "Species")
+p + ggplot2::labs(title = "Iris data")
+print(p)
+```
+
 
 ## Exercise 5
