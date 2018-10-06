@@ -111,8 +111,7 @@ print(grouped_violin_plot(iris, "Sepal.Length", "Species"))
 ### 4-b
 
 ```{r}
-p <- grouped_violin_plot(iris, "Sepal.Length", "Species")
-p + ggplot2::labs(title = "Iris data")
+p <- grouped_violin_plot(iris, "Sepal.Length", "Species") + ggplot2::labs(title = "Iris data") + ggplot2::geom_violin(fill="black")
 print(p)
 ```
 
