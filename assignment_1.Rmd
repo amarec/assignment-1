@@ -5,6 +5,9 @@ date: "05/10/2018"
 output: html_document
 ---
 
+```{r}
+source("functions.R")
+```
 
 ## Exercise 1
 
@@ -62,6 +65,22 @@ I would like to preface this by saying that I am in Linguistique Informatique an
 
 
 ## Exercise 3
+
+### 3-a
+
+```{r}
+print(sum_column(iris, "Sepal.Length"))
+print(sum_column(iris, "Species"))
+print(sum_column(warpbreaks, "breaks"))
+```
+
+### 3-b
+
+```{r}
+print(my_sum(iris$Sepal.Length))
+print(my_sum(iris$Species))
+print(my_sum(warpbreaks$breaks))
+```
 
 
 ## Exercise 4
