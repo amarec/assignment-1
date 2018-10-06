@@ -82,6 +82,15 @@ print(my_sum(iris$Species))
 print(my_sum(warpbreaks$breaks))
 ```
 
+### 3-c
+
+```{r}
+print(sum_divided_by(iris$Sepal.Length, 12))
+print(sum_divided_by(iris$Species, 22))
+print(sum_divided_by(iris$Sepal.Length, "Not numeric"))
+print(sum_divided_by(warpbreaks$breaks, -12))
+```
+
 
 ## Exercise 4
 

@@ -55,3 +55,28 @@ my_sum <- function(x) {
     result <- count
   }
 }
+
+# Divide the sum of the values in a vector by a number.
+#
+# ARGUMENTS:
+# x: a vector
+# k: a number
+#
+# RETURN VALUE:
+# if the vector's values and k are numbers, returns the sum of
+# all values, divided by k; otherwise, returns NULL
+#
+sum_divided_by <- function(x, k) {
+  # Assign a default value to the result
+  result <- NULL
+  # Check if x contains numeric values
+  if (is.numeric(x)) {
+    # Check if k is a number
+    if (is.numeric(k)) {
+      # Get the sum of x's values using the my_sum function
+      sum <- my_sum(x)
+      # Compute the division and store the result
+      result <- sum / k
+    }
+  }
+}
