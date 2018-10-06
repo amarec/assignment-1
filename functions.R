@@ -80,3 +80,21 @@ sum_divided_by <- function(x, k) {
     }
   }
 }
+
+# Return the mean of a vector's values
+#
+# ARGUMENTS:
+# x: a vector
+#
+# RETURN VALUE:
+# if the vector's values are numbers, returns their mean; otherwise, returns NULL
+#
+my_mean <- function(x) {
+  # Assign a default value to the result
+  result <- NULL
+  # Check if x contains numeric values
+  if (is.numeric(x)) {
+    # Compute and store the mean to be returned
+    result <- sum_divided_by(x, length(x))
+  }
+}
